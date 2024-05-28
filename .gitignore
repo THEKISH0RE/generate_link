@@ -10,3 +10,4 @@ Dockerfile
 
 # Ignore environment files
 .env
+
