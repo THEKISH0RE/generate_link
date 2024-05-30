@@ -4,9 +4,12 @@ import uuid
 from .utils import revert_base64
 import os
 
+popzi_url = os.getenv('POPZI_URL')
+domian_name = os.getenv('DOMAIN_NAME')
+
 @app.route('/')
 def hello_world():
-    return redirect(os.getenv('POPZI_URL'))
+    return redirect(popzi_url)
 
 @app.route('/process_paylink', methods=['POST'])
 def process_payment():
@@ -23,7 +26,7 @@ def process_payment():
 
     # Generate a unique payment token
     payment_token = f"transact/pg?token={uuid.uuid4().hex}" 
-    short_url = f"https://{os.getenv('DOMAIN_NAME')}/popzi/pg?token={payment_token}"
+    short_url = f"https://{domian_name}/popzi/pg?token={payment_token}"
     
     # Prepare the response
     response_data = {
