@@ -9,7 +9,7 @@ domian_name = os.getenv('DOMAIN_NAME')
 
 @app.route('/')
 def hello_world():
-    return redirect(popzi_url)
+    return redirect('https://popkey.in/')
 
 @app.route('/process_paylink', methods=['POST'])
 def process_payment():
@@ -26,7 +26,7 @@ def process_payment():
 
     # Generate a unique payment token
     payment_token = f"transact/pg?token={uuid.uuid4().hex}" 
-    short_url = f"https://{domian_name}/popzi/pg?token={payment_token}"
+    short_url = f"https://kishore-t2.poovarasan.ramakrishna.com/popzi/pg?token={payment_token}"
     
     # Prepare the response
     response_data = {
